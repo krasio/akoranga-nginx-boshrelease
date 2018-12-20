@@ -1,1 +1,6 @@
-name: akoranga-nginx-boshrelease
+---
+blobstore:
+  provider: local
+  options:
+    blobstore_path: /tmp/akoranga-nginx-boshrelease-blobs
+final_name: akoranga-nginx-boshrelease

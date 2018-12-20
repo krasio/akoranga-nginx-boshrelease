@@ -5,6 +5,7 @@ templates:
   ctl.erb: bin/ctl
   nginx.conf: conf/nginx.conf
 
-packages: []
+packages:
+- nginx-1.14
 
 properties: {}
