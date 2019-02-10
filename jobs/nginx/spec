@@ -3,9 +3,14 @@ name: nginx
 
 templates:
   ctl.erb: bin/ctl
-  nginx.conf: conf/nginx.conf
+  nginx.conf.erb: conf/nginx.conf
 
 packages:
 - nginx-1.14
+
+
+consumes:
+- name: backend_servers
+  type: http
 
 properties: {}

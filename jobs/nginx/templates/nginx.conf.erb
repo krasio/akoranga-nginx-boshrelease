@@ -14,10 +14,18 @@ http {
   keepalive_timeout  65;
   server_names_hash_bucket_size 512;
 
+  upstream backend {
+  <%- link("backend_servers").instances.each do |instance| -%>
+    server <%= instance.address -%>:8080;
+  <%- end -%>
+  }
+
   server {
     listen 80;
     access_log /var/vcap/sys/log/nginx/access.log;
 
-    return 200 "\nKia Ora!\n";
+    location / {
+      proxy_pass http://backend;
+    }
   }
 }
